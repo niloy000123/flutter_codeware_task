@@ -45,6 +45,7 @@ class VersionService {
   static parseJson(var jsonData) {
     List<dynamic> input = [];
     for (var i = 0; i < jsonData.length; i++) {
+      //when array found
       if (jsonData[i] is List) {
         var value = jsonData[i] as List;
         var list = [];
@@ -53,7 +54,9 @@ class VersionService {
               AndroidVerison(id: value[j]["id"], title: value[j]['title']));
         }
         input.add(list);
-      } else {
+      }
+      //when object found
+      else {
         Map<String, AndroidVerison> obj = {};
         Map<String, Map<String, Object>> value =
             jsonData[i] as Map<String, Map<String, Object>>;
