@@ -16,6 +16,12 @@ class _SearchCardState extends State<SearchCard> {
   final data = VersionService.input_2();
   String result = "";
   @override
+  void dispose() {
+    _formKey.currentState!.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -48,7 +54,7 @@ class _SearchCardState extends State<SearchCard> {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
 
-                      result = findId(int.parse(searchId))!;
+                      result = findById(int.parse(searchId))!;
                       setState(() {});
                     }
                   },
@@ -67,7 +73,7 @@ class _SearchCardState extends State<SearchCard> {
     );
   }
 
-  String? findId(int id) {
+  String? findById(int id) {
     String? result = "Not Found";
 
     innerLoop:
