@@ -41,6 +41,10 @@ class _InputOutputCard extends State<InputOutputCard> {
         const SizedBox(
           height: 20,
         ),
+        const Text("Output"),
+        const SizedBox(
+          height: 20,
+        ),
         output,
       ],
     );
